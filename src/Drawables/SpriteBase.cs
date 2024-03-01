@@ -1,48 +1,48 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using PolyhydraGames.Xna.Enums;
-using PolyhydraGames.Xna.Interfaces;
+using PolyhydraGames.MonoGame.Enums;
+using PolyhydraGames.MonoGame.Interfaces;
 
-namespace PolyhydraGames.Xna.Drawables
+namespace PolyhydraGames.MonoGame.Drawables;
+
+public abstract  class SpriteBase
 {
-    public abstract  class SpriteBase
+    protected SpriteBase(IDrawHelper helper)
     {
-        protected SpriteBase(IDrawHelper helper)
-        {
             SetScale(1);
             _helper = helper;
         }
-        protected     string Name { get; set; } 
-        private readonly IDrawHelper _helper;
-        private Texture2D _texture;
+    protected     string Name { get; set; } 
+    private readonly IDrawHelper _helper;
+    private Texture2D _texture;
 
-        public Texture2D Texture
+    public Texture2D Texture
+    {
+        get => _texture;
+        protected set
         {
-            get => _texture;
-            protected set
-            {
                 _texture = value;
                 SourceRectangle = value.Bounds;
             }
-        }
+    }
 
-        public Vector2 Origin => TargetRectangle?.Origin ?? new Vector2(0, 0);
-        public float Rotation { get; set; }
-        internal Color Color { get; set; }
-        public static Vector2 Scale;
-        protected int MyEffect { get; set; }
-        public bool Attacking { get; set; }
-        public bool Hostile { get; set; }
-        public int Health { get; set; }
-        public int ConditionDuration { get; set; }
+    public Vector2 Origin => TargetRectangle?.Origin ?? new Vector2(0, 0);
+    public float Rotation { get; set; }
+    internal Color Color { get; set; }
+    public static Vector2 Scale;
+    protected int MyEffect { get; set; }
+    public bool Attacking { get; set; }
+    public bool Hostile { get; set; }
+    public int Health { get; set; }
+    public int ConditionDuration { get; set; }
     
 
-        internal bool Alive { get; set; }
+    internal bool Alive { get; set; }
 
    
-        public abstract ITargetDrawingStructure TargetRectangle { get; }
+    public abstract ITargetDrawingStructure TargetRectangle { get; }
 
-        public void SetScale(int val){
+    public void SetScale(int val){
             switch(val){
                 case 0: 
                     Scale = new Vector2(.5f, .5f);
@@ -60,35 +60,34 @@ namespace PolyhydraGames.Xna.Drawables
 
 
 
-        public bool CollidedWith(SpriteBase other)
-        {
+    public bool CollidedWith(SpriteBase other)
+    {
             return TargetRectangle.DrawTarget.Intersects(other.TargetRectangle.DrawTarget);
         }
 
-        public HorizontalSide CollidedWithHorizontal(SpriteBase other)
-        {
+    public HorizontalSide CollidedWithHorizontal(SpriteBase other)
+    {
             var rect = TargetRectangle.DrawTarget;
             return rect.CollisionHorizontal(other.TargetRectangle.DrawTarget);
         }
     
 
-        public virtual Rectangle SideTop => TargetRectangle.TopSide;
+    public virtual Rectangle SideTop => TargetRectangle.TopSide;
 
-        public virtual Rectangle SideBottom => TargetRectangle.BottomSide;
+    public virtual Rectangle SideBottom => TargetRectangle.BottomSide;
 
-        public virtual Rectangle SideLeft => TargetRectangle.LeftSide;
+    public virtual Rectangle SideLeft => TargetRectangle.LeftSide;
 
-        public virtual Rectangle SideRight => TargetRectangle.RightSide;
+    public virtual Rectangle SideRight => TargetRectangle.RightSide;
 
 
-        public void Draw()
-        {
+    public void Draw()
+    {
             _helper.Draw(this);
         } 
 
-        public int Height => TargetRectangle.DrawTarget.Height;
+    public int Height => TargetRectangle.DrawTarget.Height;
 
-        public int Width => TargetRectangle.DrawTarget.Width;
-        public Rectangle? SourceRectangle { get; private set; }
-    }
+    public int Width => TargetRectangle.DrawTarget.Width;
+    public Rectangle? SourceRectangle { get; private set; }
 }

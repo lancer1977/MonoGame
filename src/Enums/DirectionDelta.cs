@@ -1,5 +1,5 @@
  
-namespace PolyhydraGames.Xna.Enums;
+namespace PolyhydraGames.MonoGame.Enums;
 
 public enum DirectionDelta
 {

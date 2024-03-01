@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace PolyhydraGames.Xna.Drawables
+namespace PolyhydraGames.MonoGame.Interfaces;
+
+public interface IDrawable
 {
-    public interface IDrawable
-    {
-        void Draw();
-        void Move();
-        void MoveTo(Vector2 pVector);
-    }
+    void Draw();
+    void Move();
+    void MoveTo(Vector2 pVector);
 }

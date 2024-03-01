@@ -1,29 +1,27 @@
-
 using Microsoft.Xna.Framework.Graphics;
-using PolyhydraGames.Xna.Drawables;
+using PolyhydraGames.MonoGame.Drawables;
 
-namespace PolyhydraGames.Xna
+namespace PolyhydraGames.MonoGame;
+
+public interface IDrawHelper
 {
-    public interface IDrawHelper
+    void Draw(SpriteBase sprite);
+}
+
+public class DrawHelper :IDrawHelper
+{
+    private readonly SpriteBatch _batch;
+
+    public DrawHelper(SpriteBatch batch)
     {
-        void Draw(SpriteBase sprite);
+        _batch = batch;
     }
 
-    public class DrawHelper :IDrawHelper
-    {
-        private readonly SpriteBatch _batch;
+    public void Draw(SpriteBase sprite)
+    {  
 
-        public DrawHelper(SpriteBatch batch)
-        {
-            _batch = batch;
-        }
-
-        public void Draw(SpriteBase sprite)
-        {  
-
-            _batch.Draw(sprite.Texture, sprite.TargetRectangle.DrawTarget,sprite.SourceRectangle, sprite.Color,sprite.Rotation,sprite.Origin,SpriteEffects.None,1);
-        }
+        _batch.Draw(sprite.Texture, sprite.TargetRectangle.DrawTarget,sprite.SourceRectangle, sprite.Color,sprite.Rotation,sprite.Origin,SpriteEffects.None,1);
+    }
 
    
-    }
 }

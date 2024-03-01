@@ -1,12 +1,11 @@
 using Microsoft.Xna.Framework;
 
-namespace PolyhydraGames.Xna.Interfaces
+namespace PolyhydraGames.MonoGame.Interfaces;
+
+public interface IGameInterface
 {
-    public interface IGameInterface
-    {
-        bool MainButton { get; }
-        Point Pointer { get; }
-        void Poll();
-        bool Back();
-    }
+    bool MainButton { get; }
+    Point Pointer { get; }
+    void Poll();
+    bool Back();
 }
