@@ -3,15 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PolyhydraGames.MonoGame.Drawables;
 
-sealed class Background : Sprite
+public class Background : Sprite
 {
     private static int count;
 
     public Background(Texture2D pTexture, Rectangle destination, IDrawHelper batch) : base(pTexture, destination, batch)
     {
-            count += 1;
-            Name = "Background " + count; 
-        }
+        count += 1;
+        Name = "Background " + count;
+    }
 
-  
+
 }
