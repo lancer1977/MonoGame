@@ -9,3 +9,4 @@ public interface IGameState
     void CheckInput();
     void Draw(GameTime gameTime);
 }
+
