@@ -3,14 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PolyhydraGames.MonoGame;
 
+
 static class Resolution
 {
     private static GraphicsDeviceManager _device = null;
 
-    private static int _width = 800;
-    private static int _height = 600;
-    private static int _vWidth = 1024;
-    private static int _vHeight = 768;
+    private static int _width = 1920;
+    private static int _height = 1080;
+    private static int _vWidth = 1920;
+    private static int _vHeight = 1080;
     private static Matrix _scaleMatrix;
     private static bool _fullScreen = false;
     private static bool _dirtyMatrix = true;

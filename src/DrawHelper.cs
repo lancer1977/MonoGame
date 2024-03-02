@@ -3,11 +3,6 @@ using PolyhydraGames.MonoGame.Drawables;
 
 namespace PolyhydraGames.MonoGame;
 
-public interface IDrawHelper
-{
-    void Draw(SpriteBase sprite);
-}
-
 public class DrawHelper :IDrawHelper
 {
     private readonly SpriteBatch _batch;
