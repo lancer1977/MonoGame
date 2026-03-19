@@ -4,6 +4,23 @@ namespace PolyhydraGames.MonoGame;
 
 public static class RectangleExtensions
 {
+    public static bool IntersectsAabb(this Rectangle rect, Rectangle other)
+    {
+        return rect.Intersects(other);
+    }
+
+    public static bool ContainsPoint(this Rectangle rect, Point point)
+    {
+        return rect.Contains(point);
+    }
+
+    public static bool IntersectsWithPadding(this Rectangle rect, Rectangle other, int padding)
+    {
+        var padded = rect;
+        padded.Inflate(padding, padding);
+        return padded.Intersects(other);
+    }
+
     public static Rectangle ScaleSizeAndLocation(this Rectangle rect, Vector2 xy)
     {
         return new Rectangle((int)(rect.Location.X * xy.X), (int)(rect.Location.Y * xy.Y), (int)(rect.Size.X * xy.X), (int)(rect.Size.Y * xy.Y));
