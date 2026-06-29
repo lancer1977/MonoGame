@@ -15,13 +15,13 @@ public class AnimationTests
 
         animation.Animate();
 
-        Assert.Multiple(() =>
+        Assert.Multiple((Action)(() =>
         {
             Assert.That(animation.CurrentAnimationFrame, Is.EqualTo(0));
             Assert.That(animation.StartFrame, Is.EqualTo(0));
             Assert.That(animation.EndFrame, Is.EqualTo(0));
             Assert.That(animation.CurrentAnimationDone, Is.False);
-        });
+        }));
     }
 
     [Test]
@@ -33,13 +33,13 @@ public class AnimationTests
         animation.Animate();
         animation.Animate();
 
-        Assert.Multiple(() =>
+        Assert.Multiple((Action)(() =>
         {
             Assert.That(animation.StartFrame, Is.EqualTo(8));
             Assert.That(animation.EndFrame, Is.EqualTo(11));
             Assert.That(animation.CurrentAnimationFrame, Is.EqualTo(8));
             Assert.That(animation.CurrentAnimationDone, Is.False);
-        });
+        }));
     }
 
     [Test]
@@ -51,13 +51,13 @@ public class AnimationTests
 
         animation.Animate();
 
-        Assert.Multiple(() =>
+        Assert.Multiple((Action)(() =>
         {
             Assert.That(animation.StartFrame, Is.EqualTo(12));
             Assert.That(animation.EndFrame, Is.EqualTo(15));
             Assert.That(animation.CurrentAnimationFrame, Is.EqualTo(0));
             Assert.That(animation.CurrentAnimationDone, Is.False);
-        });
+        }));
     }
 
     [Test]
@@ -69,13 +69,13 @@ public class AnimationTests
 
         animation.Animate();
 
-        Assert.Multiple(() =>
+        Assert.Multiple((Action)(() =>
         {
             Assert.That(animation.StartFrame, Is.EqualTo(4));
             Assert.That(animation.EndFrame, Is.EqualTo(7));
             Assert.That(animation.CurrentAnimationFrame, Is.EqualTo(4));
             Assert.That(animation.CurrentAnimationDone, Is.True);
-        });
+        }));
     }
 
     [Test]

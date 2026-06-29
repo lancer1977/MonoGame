@@ -21,12 +21,12 @@ public class VectorExtensionsTests
 
         var normalized = vector.NormalizeSafe();
 
-        Assert.Multiple(() =>
+        Assert.Multiple((Action)(() =>
         {
             Assert.That(normalized.X, Is.EqualTo(0.6f).Within(0.0001f));
             Assert.That(normalized.Y, Is.EqualTo(0.8f).Within(0.0001f));
             Assert.That(normalized.Length(), Is.EqualTo(1f).Within(0.0001f));
-        });
+        }));
     }
 
     [Test]
