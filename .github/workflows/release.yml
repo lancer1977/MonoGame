@@ -40,7 +40,7 @@ jobs:
         run: dotnet test PolyhydraGames.MonoGame.sln -c Release --no-build
 
       - name: Publish MonoGame library
-        run: dotnet publish src/PolyhydraGames.MonoGame.csproj -c Release -o artifacts/publish/MonoGame
+        run: dotnet publish src/PolyhydraGames.MonoGame.csproj -f net8.0 -c Release -o artifacts/publish/MonoGame
 
       - name: Publish Project1 sample
         run: dotnet publish Project1/Project1.csproj -c Release -o artifacts/publish/Project1
